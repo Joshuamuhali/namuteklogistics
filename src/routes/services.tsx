@@ -170,7 +170,7 @@ function ServicesPage() {
         <Reveal>
           <article id={SECTIONS[3].id} className="scroll-mt-24 border-t border-border py-16">
             <div className="grid items-start gap-8 md:grid-cols-2">
-              <div className={SECTIONS[3].id ? "" : ""}>
+              <div>
                 <span className="text-4xl text-primary">{SECTIONS[3].n}</span>
                 <h2 className="mt-2 text-4xl text-foreground">{SECTIONS[3].title}</h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">{SECTIONS[3].intro}</p>
