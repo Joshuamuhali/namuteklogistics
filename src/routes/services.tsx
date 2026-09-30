@@ -92,7 +92,7 @@ const SECTIONS = [
       "Project and site support",
     ],
   },
-];
+] as const;
 
 function ServiceSection({ section, flip }: { section: (typeof SECTIONS)[number]; flip?: boolean }) {
   return (
