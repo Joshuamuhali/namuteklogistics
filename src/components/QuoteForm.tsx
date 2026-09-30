@@ -61,15 +61,17 @@ export function QuoteForm() {
 
     try {
       await submit({
-        serviceType,
-        origin: String(form.get("origin") ?? "").trim() || undefined,
-        destination: String(form.get("destination") ?? "").trim() || undefined,
-        contactName: String(form.get("contactName") ?? ""),
-        companyName: String(form.get("companyName") ?? "").trim() || undefined,
-        phone: String(form.get("phone") ?? ""),
-        email: String(form.get("email") ?? "").trim(),
-        projectDetails: String(form.get("projectDetails") ?? ""),
-        extra,
+        data: {
+          serviceType,
+          origin: String(form.get("origin") ?? "").trim() || undefined,
+          destination: String(form.get("destination") ?? "").trim() || undefined,
+          contactName: String(form.get("contactName") ?? ""),
+          companyName: String(form.get("companyName") ?? "").trim() || undefined,
+          phone: String(form.get("phone") ?? ""),
+          email: String(form.get("email") ?? "").trim(),
+          projectDetails: String(form.get("projectDetails") ?? ""),
+          extra,
+        },
       });
       setStatus("success");
     } catch (err) {
