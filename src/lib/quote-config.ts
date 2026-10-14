@@ -100,5 +100,4 @@ export const EQUIPMENT = [
   { key: "lowbed", label: "Low-bed trailer & prime mover", perDay: [9000, 13000] },
 ] as const;
 
-export const formatZMW = (n: number) =>
-  "K " + Math.round(n / 100) * 100 >= "" ? `K ${(Math.round(n / 100) * 100).toLocaleString("en-ZM")}` : "";
+export const formatZMW = (n: number) => `K ${(Math.round(n / 100) * 100).toLocaleString("en-US")}`;
