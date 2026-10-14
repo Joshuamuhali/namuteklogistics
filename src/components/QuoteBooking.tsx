@@ -20,14 +20,14 @@ const STEPS = ["Service", "Requirement", "Location", "Contact", "Review"];
 const WHATSAPP = PHONES[0].tel.replace("+", "");
 
 type State = {
-  division?: DivisionKey;
-  stream?: string; band?: string; cargo?: string; loads: number; date?: string;
-  buildType?: string; area?: number; stage?: string;
-  civilType?: string; civilQty?: number;
-  equipment?: string; quantity: number; days?: number;
-  origin?: string; originOther?: string; dest?: string; destOther?: string;
-  site?: string;
-  name?: string; company?: string; phone?: string; email?: string; details?: string;
+  division?: DivisionKey | undefined;
+  stream?: string | undefined; band?: string | undefined; cargo?: string | undefined; loads: number; date?: string | undefined;
+  buildType?: string | undefined; area?: number | undefined; stage?: string | undefined;
+  civilType?: string | undefined; civilQty?: number | undefined;
+  equipment?: string | undefined; quantity: number; days?: number | undefined;
+  origin?: string | undefined; originOther?: string | undefined; dest?: string | undefined; destOther?: string | undefined;
+  site?: string | undefined;
+  name?: string | undefined; company?: string | undefined; phone?: string | undefined; email?: string | undefined; details?: string | undefined;
 };
 
 const field =
@@ -113,7 +113,7 @@ export function QuoteBooking() {
     true,
   ];
 
-  const summaryRows: { label: string; value?: string; step: number }[] = [
+  const summaryRows: { label: string; value?: string | undefined; step: number }[] = [
     { label: "Service", value: DIVISIONS.find((d) => d.key === s.division)?.label, step: 0 },
     ...(isFreight
       ? [
