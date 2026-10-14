@@ -21,6 +21,8 @@ export type Database = {
           created_at: string
           destination: string | null
           email: string | null
+          estimate_max: number | null
+          estimate_min: number | null
           extra: Json
           id: string
           origin: string | null
@@ -35,6 +37,8 @@ export type Database = {
           created_at?: string
           destination?: string | null
           email?: string | null
+          estimate_max?: number | null
+          estimate_min?: number | null
           extra?: Json
           id?: string
           origin?: string | null
@@ -49,6 +53,8 @@ export type Database = {
           created_at?: string
           destination?: string | null
           email?: string | null
+          estimate_max?: number | null
+          estimate_min?: number | null
           extra?: Json
           id?: string
           origin?: string | null
