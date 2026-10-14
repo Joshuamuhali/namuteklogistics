@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
 
-const SERVICE_TYPES = ["freight", "haulage", "logistics", "construction"] as const;
+const SERVICE_TYPES = ["freight", "haulage", "logistics", "construction", "civil", "plant"] as const;
 
 const quoteSchema = z.object({
   serviceType: z.enum(SERVICE_TYPES),
@@ -24,6 +24,8 @@ const quoteSchema = z.object({
     .min(10, "Please describe your requirement in a little more detail")
     .max(2000),
   extra: z.record(z.string().max(80), z.string().max(500)).default({}),
+  estimateMin: z.number().nonnegative().max(1e10).optional(),
+  estimateMax: z.number().nonnegative().max(1e10).optional(),
 });
 
 export type QuoteRequestInput = z.infer<typeof quoteSchema>;
@@ -47,6 +49,8 @@ export const submitQuoteRequest = createServerFn({ method: "POST" })
       email: data.email || null,
       project_details: data.projectDetails,
       extra: data.extra,
+      estimate_min: data.estimateMin ?? null,
+      estimate_max: data.estimateMax ?? null,
     });
 
     if (error) {
